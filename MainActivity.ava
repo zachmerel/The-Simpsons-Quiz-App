@@ -1,0 +1,150 @@
+package com.example.android.thesimpsonsquizapp;
+
+import android.content.Context;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.Gravity;
+import android.view.View;
+import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.Toast;
+
+public class MainActivity extends AppCompatActivity {
+
+    int basescore = 0;
+    String toastMessage;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
+
+
+    /**
+     * Gets answer for Question 1
+     */
+    public void getQ1Answer() {
+        EditText questionOneAnswer = findViewById(R.id.question_1_answer);
+        String cityName = questionOneAnswer.getText().toString();
+
+        if (cityName.contains("Springfield")) {
+            basescore++;
+        } else {
+            Toast.makeText(this, "The city you have named is incorrect. Try again.", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+    /**
+     * Gets answer for Question 2
+     */
+    public void getQ2Answers() {
+        CheckBox bartCheckBox = findViewById(R.id.q2_option1);
+        boolean isBart = bartCheckBox.isChecked();
+
+        CheckBox margeCheckBox = findViewById(R.id.q2_option2);
+        boolean isMarge = margeCheckBox.isChecked();
+
+        CheckBox maggieCheckBox = findViewById(R.id.q2_option3);
+        boolean isMaggie = maggieCheckBox.isChecked();
+
+        CheckBox nelsonCheckBox = findViewById(R.id.q2_option4);
+        boolean isNelson = nelsonCheckBox.isChecked();
+
+        CheckBox homerCheckBox = findViewById(R.id.q2_option5);
+        boolean isHomer = homerCheckBox.isChecked();
+
+        CheckBox lisaCheckBox = findViewById(R.id.q2_option6);
+        boolean isLisa = lisaCheckBox.isChecked();
+
+        if (isNelson) {
+            Toast.makeText(this, "You have not selected the correct members of the family, try again", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (isBart && isMarge && isMaggie && isHomer && isLisa) {
+            basescore++;
+
+        } else {
+            Toast.makeText(this, "You have not selected the correct members of the family, try again", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    /**
+     * gets answer for Q3
+     */
+    public void getQ3answer() {
+
+        RadioButton slhRadio = findViewById(R.id.q3_option4);
+        boolean isSLH = slhRadio.isChecked();
+
+        if (isSLH)
+            basescore++;
+        else {
+            Toast.makeText(this, "You have not selected the correct dog's name", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    /**
+     * gets answer for Q4
+     */
+    public void getQ4answer() {
+        RadioButton falseRadio = findViewById(R.id.q4_option2);
+        boolean isFalse = falseRadio.isChecked();
+
+        if (isFalse)
+            basescore++;
+        else {
+            Toast.makeText(this, "You have answered question 4  incorrectly ", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    /**
+     * Gets answer for Question 5
+     */
+    public void getQ5Answers() {
+        CheckBox safteyInspectorCheckBox = findViewById(R.id.q5_option1);
+        boolean isSafteyInspector = safteyInspectorCheckBox.isChecked();
+
+        CheckBox astronautCheckBox = findViewById(R.id.q5_option2);
+        boolean isAstronaut = astronautCheckBox.isChecked();
+
+        CheckBox plowDriverCheckBox = findViewById(R.id.q5_option3);
+        boolean isPlowerDriver = plowDriverCheckBox.isChecked();
+
+        CheckBox countryWesternManagerCheckBox = findViewById(R.id.q5_option4);
+        boolean isCWM = countryWesternManagerCheckBox.isChecked();
+
+        if (isSafteyInspector && isAstronaut && isPlowerDriver && isCWM) {
+            basescore++;
+        } else {
+            Toast.makeText(this, "You incorrectly choosen Homer's occupations", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    /**
+     * establishes toast time and position
+     */
+    public void getToast() {
+        Context context = getApplicationContext();
+        int duration = Toast.LENGTH_SHORT;
+        Toast toast = Toast.makeText(context, toastMessage, duration);
+        toast.setGravity(Gravity.BOTTOM, 0, 0);
+        toast.show();
+    }
+
+    /**
+     * Calls answer methods to get score and store
+     * displays quiz results through toast
+     */
+    public void submitQuiz(View view) {
+        getQ1Answer();
+        getQ2Answers();
+        getQ3answer();
+        getQ4answer();
+        getQ5Answers();
+        toastMessage = "Your score is " + basescore + " out of 5 possible.";
+        getToast();
+    }
+}
