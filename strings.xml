@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">The Simpsons Quiz App</string>
+    <string name="Title_Banner">Banner Photo</string>
+    <string name="q1">1. What city do the Simpsons live in?</string>
+    <string name="hint">City</string>
+    <string name="q2">2. Check all names who are NOT members of the Simpsons family.</string>
+    <string name="Bart">Bart</string>
+    <string name="Marge">Marge</string>
+    <string name="Maggie">Maggie</string>
+    <string name="Homer">Homer</string>
+    <string name="Nelson">Nelson</string>
+    <string name="Lisa">Lisa</string>
+    <string name="q3">3.  What is the name of the Simpson’s family dog? </string>
+    <string name="Scooby">Scooby</string>
+    <string name="Lassie">Lassie</string>
+    <string name="Beethoven">Beethoven</string>
+    <string name="SLH">Santa\'s Little Helper</string>
+    <string name="q4">4. The Bar Homer frequents is called Lenny’s</string>
+    <string name="t">True</string>
+    <string name="f">False</string>
+    <string name="q5">5. Check all occupations that Homer has held </string>
+    <string name="job1">Safety Inspector</string>
+    <string name="job2">Astronaut</string>
+    <string name="job3">Plow Driver</string>
+    <string name="job4">Country Western Manager</string>
+    <string name="SUBMIT">SUBMIT</string>
+</resources>
